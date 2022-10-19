@@ -1,5 +1,5 @@
-<h1 align="center">标题</h1>
-<p align="center"><b>简单介绍</b></p>
+<h1 align="center">Title</h1>
+<p align="center"><b>Introduce</b></p>
 
 <p align="center">
 
@@ -24,37 +24,35 @@
 <strong>
 <samp>
 
-[English](README_en.md) · [简体中文](README.md)
+English · [简体中文](README.md)
 
 </samp>
 </strong>
 </div>
 
-## 目录
+## Tbale of Content
 
 [toc]
 
-|
+## QuickStart
 
-## 快速开始
-
-### 安装
+### Install
 
 ```bash
-# 克隆项目
-git clone `repoUrl`
+# clone the repo
+git clone `repo`
 
-# 安装依赖
+# install dependency
 npm install
 
-# 启动服务
+# run serve
 npm run start
 
-# 打包构建
+# build and deploy
 npm run build
 ```
 
-### 项目结构:
+Directory description:
 
 ```
 ├─ config
@@ -68,26 +66,33 @@ npm run build
 │  └─ index.js    //入口文件，会 build 成  index.html
 ```
 
-### 使用方法
+### Usage
 
-```vue
-<template>
-  <Slider v-model="value" range />
-</template>
-<script>
-export default {
-  data() {
+```jsx
+import { forwardRef, useRef, useImperativeHandle } from 'react';
+
+const MyInput = forwardRef(function MyInput(props, ref) {
+  const inputRef = useRef(null);
+
+  useImperativeHandle(ref, () => {
     return {
-      value: [20, 50],
+      focus() {
+        inputRef.current.focus();
+      },
+      scrollIntoView() {
+        inputRef.current.scrollIntoView();
+      },
     };
-  },
-};
+  }, []);
+
+  return <input {...props} ref={inputRef} />;
+});
 </script>
 ```
 
 [→ 查看 demo](www.google.com)
 
-## 贡献者
+## Contribution
 
 <table>
     <tbody>
@@ -102,15 +107,15 @@ export default {
     </tbody>
 </table>
 
-## 维护者
+## Maintainers
 
 - [kwobi](https://github.com/kwobi)
 - [lavard](https://github.com/lalalavard)
 
-## 鸣谢
+## Thanks
 
 - [people](www.google.com)
 
-## 协议
+## License
 
 - [MIT](https://opensource.org/licenses/MIT)
